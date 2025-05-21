@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "daisyui/dist/full.css";
 import { FaGithub, FaLinkedin, FaPhone, FaEnvelope } from "react-icons/fa";
 import { toPng } from "html-to-image";
@@ -6,9 +6,9 @@ import { jsPDF } from "jspdf";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
-const Resume = ({ data }) => {
+const Resume = forwardRef(({ data }, ref) => {
   const resumeRef = useRef(null);
-
+  
   const handleDownloadPdf = () => {
     toPng(resumeRef.current, { quality: 1.0 })
       .then((dataUrl) => {
@@ -249,6 +249,6 @@ const Resume = ({ data }) => {
       </section>
     </>
   );
-};
+});
 
 export default Resume;

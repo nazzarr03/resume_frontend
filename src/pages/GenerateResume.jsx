@@ -297,7 +297,7 @@ const GenerateResume = () => {
     <div className="mt-5 p-10 flex flex-col gap-3 items-center justify-center font-sans">
       {showFormUI && <ShowFormFunction />}
       {showPromptInput && <ShowInputField />}
-      {showResumeUI && showResume()}
+      {showResumeUI && <Resume data={data} ref={resumeRef} />}
     </div>
   );
 };
